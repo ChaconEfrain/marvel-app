@@ -1,0 +1,24 @@
+.navBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  background-color: rgb(113, 9, 9);
+}
+
+.navMenu {
+  display: flex;
+  gap: 70px;
+  list-style: none;
+  color: rgb(255, 255, 255);
+}
+
+.navImage {
+  height: 200px;
+}
+
+.imageContainer {
+  display: flex;
+  gap: 90px;
+  padding-top: 10px;
+}
