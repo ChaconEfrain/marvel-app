@@ -5,6 +5,7 @@ import {
   GET_COMICS,
   GET_EVENTS,
   GET_SERIES,
+  GET_STORIES,
   // GET_CREATORS,
 } from "../actions";
 
@@ -15,6 +16,7 @@ const initialState = {
   comics: [],
   events: [],
   series: [],
+  stories: [],
   // creators: [],
 };
 
@@ -64,6 +66,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         series: action.payload,
+      };
+
+    case GET_STORIES:
+      return {
+        ...state,
+        stories: action.payload,
       };
 
     // case GET_CREATORS:

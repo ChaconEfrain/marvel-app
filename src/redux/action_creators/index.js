@@ -5,6 +5,7 @@ import {
   GET_COMICS,
   GET_EVENTS,
   GET_SERIES,
+  GET_STORIES,
   // GET_CREATORS,
 } from "../actions";
 import md5 from "js-md5";
@@ -95,6 +96,20 @@ export const getSeries = () => {
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: GET_SERIES, payload: data.data.results });
+        console.log(data.data.results);
+      })
+      .catch((err) => console.error(err));
+  };
+};
+
+export const getStories = () => {
+  const hash = hashGenerator();
+  const URL = `https://gateway.marvel.com:443/v1/public/stories?creators=30&limit=50&ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
+  return (dispatch) => {
+    fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: GET_STORIES, payload: data.data.results });
         console.log(data.data.results);
       })
       .catch((err) => console.error(err));
