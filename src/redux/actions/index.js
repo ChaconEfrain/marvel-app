@@ -2,3 +2,5 @@ export const GET_CHARACTERS = "GET_CHARACTERS";
 export const GET_CHARACTER = "GET_CHARACTER";
 export const GET_CHARACTER_COMICS = "GET_CHARACTER_COMICS";
 export const GET_COMICS = "GET_COMICS";
+export const GET_EVENTS = "GET_EVENTS";
+// export const GET_CREATORS = "GET_CREATORS";

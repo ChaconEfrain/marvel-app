@@ -1,4 +1,5 @@
 // import general_img from "../../images/Universo_Marvel.png";
+import { NavLink } from "react-router-dom";
 import cap from "../../images/cap.png";
 import hulk from "../../images/hulk.png";
 import ironman from "../../images/ironman.png";
@@ -20,12 +21,24 @@ const Nav = () => {
         <img className={s.navImage} src={capmarvel} alt="Captain Marvel" />
       </div>
       <ul className={s.navMenu}>
-        <li>Characters</li>
-        <li>Comics</li>
-        <li>Creators</li>
-        <li>Events</li>
-        <li>Series</li>
-        <li>Stories</li>
+        <NavLink className={s.navLink} to="/">
+          <li>Characters</li>
+        </NavLink>
+        <NavLink className={s.navLink} to="/comics">
+          <li>Comics</li>
+        </NavLink>
+        {/* <NavLink className={s.navLink} to="/creators">
+          <li>Creators</li>
+        </NavLink> */}
+        <NavLink className={s.navLink} to="/events">
+          <li>Events</li>
+        </NavLink>
+        <NavLink className={s.navLink} to="/series">
+          <li>Series</li>
+        </NavLink>
+        <NavLink className={s.navLink} to="/stories">
+          <li>Stories</li>
+        </NavLink>
       </ul>
     </nav>
   );
