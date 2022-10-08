@@ -3,12 +3,11 @@
   flex-direction: column;
   align-items: center;
   list-style: none;
-  background-color: rgb(42, 42, 42);
 }
 
 .navMenu {
   display: flex;
-  gap: 70px;
+  gap: 100px;
   list-style: none;
 }
 
@@ -25,4 +24,15 @@
 .navLink {
   text-decoration: none;
   color: white;
+  font-size: 20px;
+}
+
+.navLink:hover {
+  color: rgb(68, 68, 255);
+  font-size: 22px;
+}
+
+.active {
+  color: rgb(68, 68, 255);
+  font-size: 22px;
 }

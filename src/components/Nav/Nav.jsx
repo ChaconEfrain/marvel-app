@@ -1,4 +1,4 @@
-// import general_img from "../../images/Universo_Marvel.png";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import cap from "../../images/cap.png";
 import hulk from "../../images/hulk.png";
@@ -9,6 +9,14 @@ import capmarvel from "../../images/cap_marvel.png";
 import s from "./Nav.module.css";
 
 const Nav = () => {
+  const handleClick = (e) => {
+    document
+      .querySelectorAll("li")
+      .forEach((li) => li.classList.remove(s.active));
+
+    e.target.classList.add(s.active);
+  };
+
   return (
     <nav className={s.navBar}>
       <div className={s.imageContainer}>
@@ -20,7 +28,7 @@ const Nav = () => {
         <img className={s.navImage} src={thor} alt="Thor" />
         <img className={s.navImage} src={capmarvel} alt="Captain Marvel" />
       </div>
-      <ul className={s.navMenu}>
+      <ul onClick={(e) => handleClick(e)} className={s.navMenu}>
         <NavLink className={s.navLink} to="/">
           <li>Characters</li>
         </NavLink>
@@ -33,9 +41,9 @@ const Nav = () => {
         <NavLink className={s.navLink} to="/events">
           <li>Events</li>
         </NavLink>
-        <NavLink className={s.navLink} to="/series">
+        {/* <NavLink className={s.navLink} to="/series">
           <li>Series</li>
-        </NavLink>
+        </NavLink> */}
         <NavLink className={s.navLink} to="/stories">
           <li>Stories</li>
         </NavLink>

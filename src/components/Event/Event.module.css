@@ -1,0 +1,63 @@
+.cardContainer {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  border: 2px solid black;
+}
+
+/* .cardContainer:hover .charDiv {
+  opacity: 1;
+} */
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.cardMenu {
+  display: flex;
+  align-self: center;
+  gap: 50px;
+}
+
+.cardImage {
+  display: flex;
+  width: 250px;
+}
+
+.cardTitle {
+  font-size: 22px;
+}
+
+.description {
+  line-height: 25px;
+}
+
+.charDiv {
+  position: absolute;
+  display: none;
+  justify-content: space-between;
+  background-color: white;
+  width: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.charButtons {
+  background-color: transparent;
+  border: none;
+  margin: 0 5px;
+}
+
+span,
+p {
+  color: white;
+}
+
+.charDivDisplay {
+  display: flex;
+}
