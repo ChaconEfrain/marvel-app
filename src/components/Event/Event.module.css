@@ -45,6 +45,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* transform: display 0.5s ease-in; */
 }
 
 .charButtons {
@@ -60,4 +61,12 @@ p {
 
 .charDivDisplay {
   display: flex;
+}
+
+.charImage {
+  width: 200px;
+}
+
+.charSpan {
+  color: black;
 }

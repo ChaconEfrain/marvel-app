@@ -34,6 +34,11 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case GET_CHARACTER:
+      // const chars = action.payload.filter(
+      //   (character) =>
+      //     character.thumbnail.path.split("/").pop() !== "image_not_available" &&
+      //     character.thumbnail.extension !== "gif"
+      // );
       return {
         ...state,
         character: action.payload,
