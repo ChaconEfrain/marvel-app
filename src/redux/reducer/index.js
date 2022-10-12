@@ -3,6 +3,7 @@ import {
   GET_CHARACTER,
   GET_CHARACTER_COMICS,
   GET_COMICS,
+  GET_COMIC,
   GET_EVENTS,
   // GET_SERIES,
   GET_STORIES,
@@ -14,6 +15,7 @@ const initialState = {
   character: {},
   characterComics: [],
   comics: [],
+  comic: {},
   events: [],
   // series: [],
   stories: [],
@@ -34,11 +36,6 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case GET_CHARACTER:
-      // const chars = action.payload.filter(
-      //   (character) =>
-      //     character.thumbnail.path.split("/").pop() !== "image_not_available" &&
-      //     character.thumbnail.extension !== "gif"
-      // );
       return {
         ...state,
         character: action.payload,
@@ -59,6 +56,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         comics: comics,
+      };
+
+    case GET_COMIC:
+      return {
+        ...state,
+        comic: action.payload,
       };
 
     case GET_EVENTS:

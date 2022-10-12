@@ -48,6 +48,18 @@
   /* transform: display 0.5s ease-in; */
 }
 
+.comicDiv {
+  position: absolute;
+  display: none;
+  justify-content: space-between;
+  background-color: white;
+  width: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* transform: display 0.5s ease-in; */
+}
+
 .charButtons {
   background-color: transparent;
   border: none;
@@ -63,10 +75,22 @@ p {
   display: flex;
 }
 
+.comicDivDisplay {
+  display: flex;
+}
+
 .charImage {
   width: 200px;
 }
 
+.comicImage {
+  width: 200px;
+}
+
 .charSpan {
+  color: black;
+}
+
+.comicSpan {
   color: black;
 }

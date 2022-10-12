@@ -3,6 +3,7 @@ import {
   GET_CHARACTER,
   GET_CHARACTER_COMICS,
   GET_COMICS,
+  GET_COMIC,
   GET_EVENTS,
   // GET_SERIES,
   GET_STORIES,
@@ -70,6 +71,20 @@ export const getComics = (format) => {
       .then((data) => {
         dispatch({ type: GET_COMICS, payload: data.data.results });
         console.log(data.data.results);
+      })
+      .catch((err) => console.error(err));
+  };
+};
+
+export const getComic = (id) => {
+  const hash = hashGenerator();
+  const URL = `https://gateway.marvel.com:443/v1/public/comics/${id}?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
+  return (dispatch) => {
+    fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: GET_COMIC, payload: data.data.results[0] });
+        console.log(data.data.results[0]);
       })
       .catch((err) => console.error(err));
   };
