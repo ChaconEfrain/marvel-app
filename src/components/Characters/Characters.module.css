@@ -5,3 +5,20 @@
   margin: 20px 100px;
   height: 100%;
 }
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.charInput {
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  padding: 5px 10px;
+}
+
+.inputIcon {
+  background-color: transparent;
+  border: none;
+}

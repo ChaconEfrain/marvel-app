@@ -25,7 +25,7 @@ const Event = ({
   //State that controls the "previous" button on the "Characters involved" modal.
   const [previous, setPrevious] = useState(next);
 
-  //Functions to handle first click on the "Characters involved" elements.
+  //Function to handle first click on the "Characters involved" span.
   const handleClickChars = () => {
     const name = characters.items[0].name;
     setClicked(
@@ -43,7 +43,7 @@ const Event = ({
     }
   };
 
-  //Functions to handle first click on the "Comics involved" elements.
+  //Function to handle first click on the "Comics involved" span.
   const handleClickComics = () => {
     const id = comics.items[0].resourceURI.split("/").pop();
     setClicked(

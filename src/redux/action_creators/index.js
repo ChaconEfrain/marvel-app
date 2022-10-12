@@ -62,9 +62,9 @@ export const getCharacterComics = (id) => {
   };
 };
 
-export const getComics = (format) => {
+export const getComics = (character) => {
   const hash = hashGenerator();
-  const URL = `https://gateway.marvel.com:443/v1/public/comics?format=${format}&noVariants=true&ts=${TIME_STAMP}&limit=50&apikey=${PUBLIC_KEY}&hash=${hash}`;
+  const URL = `https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${character}&ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
   return (dispatch) => {
     fetch(URL)
       .then((response) => response.json())
@@ -120,7 +120,7 @@ export const getEvents = () => {
 
 export const getStories = () => {
   const hash = hashGenerator();
-  const URL = `https://gateway.marvel.com:443/v1/public/stories?creators=30&limit=50&ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
+  const URL = `https://gateway.marvel.com:443/v1/public/stories?creators=30&limit=10&ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
   return (dispatch) => {
     fetch(URL)
       .then((response) => response.json())

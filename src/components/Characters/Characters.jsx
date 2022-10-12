@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from "../../redux/action_creators";
 import Character from "../Character/Character";
@@ -10,23 +10,44 @@ const Characters = () => {
   // const randomLetter = abecedary[randomIndex];
   const dispatch = useDispatch();
   const characters = useSelector((state) => state.characters);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     dispatch(getCharacters("spider"));
   }, []);
 
-  // const posterPathLastSentence =
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(getCharacters(input));
+    setInput("");
+  };
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
 
   return (
-    <div className={s.cardsContainer}>
-      {characters &&
-        characters.map((char) => (
-          <Character
-            key={char.id}
-            poster={`${char.thumbnail.path}.${char.thumbnail.extension}`}
-            name={char.name}
-          />
-        ))}
+    <div>
+      <form className={s.formContainer} onSubmit={(e) => handleSubmit(e)}>
+        <input
+          className={s.charInput}
+          type="text"
+          placeholder="Search characters..."
+          value={input}
+          onChange={(e) => handleInput(e)}
+        />
+        <input className={s.inputIcon} type="submit" value="🔍" />
+      </form>
+      <div className={s.cardsContainer}>
+        {characters &&
+          characters.map((char) => (
+            <Character
+              key={char.id}
+              poster={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+              name={char.name}
+            />
+          ))}
+      </div>
     </div>
   );
 };

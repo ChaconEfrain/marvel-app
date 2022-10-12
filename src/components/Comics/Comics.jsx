@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComics } from "../../redux/action_creators";
 import Comic from "../Comic/Comic";
@@ -7,21 +7,44 @@ import s from "./Comics.module.css";
 const Comics = () => {
   const dispatch = useDispatch();
   const comics = useSelector((state) => state.comics);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
-    dispatch(getComics("digital comic"));
+    dispatch(getComics("spider"));
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(getComics(input));
+    setInput("");
+  };
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+
   return (
-    <div className={s.cardsContainer}>
-      {comics &&
-        comics.map((comic) => (
-          <Comic
-            key={comic.id}
-            poster={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-            title={comic.title}
-          />
-        ))}
+    <div>
+      <form className={s.formContainer} onSubmit={(e) => handleSubmit(e)}>
+        <input
+          className={s.comicInput}
+          type="text"
+          placeholder="Search by character..."
+          value={input}
+          onChange={(e) => handleInput(e)}
+        />
+        <input type="submit" className={s.inputIcon} value="🔍" />
+      </form>
+      <div className={s.cardsContainer}>
+        {comics &&
+          comics.map((comic) => (
+            <Comic
+              key={comic.id}
+              poster={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              title={comic.title}
+            />
+          ))}
+      </div>
     </div>
   );
 };
