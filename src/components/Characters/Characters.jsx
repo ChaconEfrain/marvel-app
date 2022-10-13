@@ -20,6 +20,7 @@ const Characters = () => {
     e.preventDefault();
     dispatch(getCharacters(input));
     setInput("");
+    document.querySelector("input").blur();
   };
 
   const handleInput = (e) => {
@@ -36,7 +37,7 @@ const Characters = () => {
           value={input}
           onChange={(e) => handleInput(e)}
         />
-        <input className={s.inputIcon} type="submit" value="🔍" />
+        {/* <input className={s.inputIcon} type="submit" value="🔍" /> */}
       </form>
       <div className={s.cardsContainer}>
         {characters &&

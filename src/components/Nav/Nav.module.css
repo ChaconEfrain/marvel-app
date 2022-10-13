@@ -23,16 +23,16 @@
 
 .navLink {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 20px;
 }
 
 .navLink:hover {
-  color: rgb(68, 68, 255);
+  color: rgb(0, 94, 255);
   font-size: 22px;
 }
 
 .active {
-  color: rgb(68, 68, 255);
+  color: rgb(0, 94, 255);
   font-size: 22px;
 }

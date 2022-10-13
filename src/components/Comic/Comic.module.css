@@ -3,14 +3,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid black;
   width: 200px;
+  border-radius: 20px;
+  box-shadow: 5px 10px 8px 3px black;
+  margin-bottom: 20px;
 }
 
 .charName {
-  justify-self: flex-end;
+  text-align: center;
+  color: black;
+  font-size: 15px;
+  margin: 10px 10px;
 }
 
 .poster {
   width: 200px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }

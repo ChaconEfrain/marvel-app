@@ -2,7 +2,8 @@
   display: flex;
   gap: 10px;
   width: 100%;
-  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 10px 15px 10px black;
 }
 
 /* .cardContainer:hover .charDiv {
@@ -13,7 +14,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 15px;
+  width: 100%;
+  margin: 20px 0;
   position: relative;
 }
 
@@ -26,6 +28,9 @@
 .cardImage {
   display: flex;
   width: 250px;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .cardTitle {
@@ -40,57 +45,103 @@
   position: absolute;
   display: none;
   justify-content: space-between;
-  background-color: white;
-  width: 250px;
-  top: 50%;
+  height: 200px;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* transform: display 0.5s ease-in; */
 }
 
 .comicDiv {
   position: absolute;
   display: none;
   justify-content: space-between;
-  background-color: white;
-  width: 250px;
-  top: 50%;
+  height: 250px;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* transform: display 0.5s ease-in; */
+}
+
+.overlayChar {
+  background-color: rgba(0, 0, 0, 0.382);
+  backdrop-filter: blur(4px);
+  border-top-right-radius: 20px;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  bottom: 40px;
+  right: 0;
+}
+
+.overlayComic {
+  background-color: rgba(0, 0, 0, 0.382);
+  backdrop-filter: blur(4px);
+  border-top-right-radius: 20px;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  bottom: 40px;
+  right: 0;
 }
 
 .charButtons {
   background-color: transparent;
   border: none;
-  margin: 0 5px;
+  font-weight: bold;
+}
+
+.charButtons:hover {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonRight {
+  margin-left: 15px;
+}
+
+.buttonLeft {
+  margin-right: 15px;
 }
 
 span,
 p {
-  color: white;
+  color: black;
 }
 
 .charDivDisplay {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .comicDivDisplay {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .charImage {
-  width: 200px;
+  height: 150px;
+  border-radius: 20px;
+  box-shadow: 2px 5px 5px black;
 }
 
 .comicImage {
-  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  box-shadow: 2px 5px 5px black;
 }
 
 .charSpan {
-  color: black;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 
 .comicSpan {
-  color: black;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.cardOption:hover {
+  cursor: pointer;
 }

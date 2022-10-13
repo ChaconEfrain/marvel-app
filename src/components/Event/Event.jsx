@@ -27,38 +27,44 @@ const Event = ({
 
   //Function to handle first click on the "Characters involved" span.
   const handleClickChars = () => {
-    const name = characters.items[0].name;
-    setClicked(
-      clicked.comicsModal
-        ? {
-            comicsModal: !clicked.comicsModal,
-            charactersModal: !clicked.charactersModal,
-          }
-        : { ...clicked, charactersModal: !clicked.charactersModal }
-    );
-    if (!clicked.charactersModal) {
-      dispatch(getCharacter(name));
-      setNext(1);
-      next === 1 ? setPrevious(characters.items.length - 1) : setPrevious(next);
-    }
+    if (characters.items.length) {
+      const name = characters.items[0].name;
+      setClicked(
+        clicked.comicsModal
+          ? {
+              comicsModal: !clicked.comicsModal,
+              charactersModal: !clicked.charactersModal,
+            }
+          : { ...clicked, charactersModal: !clicked.charactersModal }
+      );
+      if (!clicked.charactersModal) {
+        dispatch(getCharacter(name));
+        setNext(1);
+        next === 1
+          ? setPrevious(characters.items.length - 1)
+          : setPrevious(next);
+      }
+    } else return;
   };
 
   //Function to handle first click on the "Comics involved" span.
   const handleClickComics = () => {
-    const id = comics.items[0].resourceURI.split("/").pop();
-    setClicked(
-      clicked.charactersModal
-        ? {
-            comicsModal: !clicked.comicsModal,
-            charactersModal: !clicked.charactersModal,
-          }
-        : { ...clicked, comicsModal: !clicked.comicsModal }
-    );
-    if (!clicked.comicsModal) {
-      dispatch(getComic(id));
-      setNext(1);
-      next === 1 ? setPrevious(comics.items.length - 1) : setPrevious(next);
-    }
+    if (comics.items.length) {
+      const id = comics.items[0].resourceURI.split("/").pop();
+      setClicked(
+        clicked.charactersModal
+          ? {
+              comicsModal: !clicked.comicsModal,
+              charactersModal: !clicked.charactersModal,
+            }
+          : { ...clicked, comicsModal: !clicked.comicsModal }
+      );
+      if (!clicked.comicsModal) {
+        dispatch(getComic(id));
+        setNext(1);
+        next === 1 ? setPrevious(comics.items.length - 1) : setPrevious(next);
+      }
+    } else return;
   };
 
   //Functions to handle clicks on the "next" and "previous" buttons
@@ -119,51 +125,73 @@ const Event = ({
         <span className={s.cardTitle}>{title}</span>
         <p className={s.description}>{description}</p>
         <div className={s.cardMenu}>
-          <span onClick={handleClickChars} className={s.characters}>
+          <span onClick={handleClickChars} className={s.cardOption}>
             Characters involved
           </span>
           <div className={s.comicsDiv}></div>
-          <span onClick={handleClickComics}>Comics involved</span>
+          <span onClick={handleClickComics} className={s.cardOption}>
+            Comics involved
+          </span>
         </div>
-        <div
-          className={`${s.charDiv} ${
-            clicked.charactersModal && s.charDivDisplay
-          }`}
-        >
-          <button onClick={handleClickPrevious} className={s.charButtons}>
-            {"<"}
-          </button>
-          {Object.keys(character).length && (
-            <img
-              className={s.charImage}
-              src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-              alt={character.name}
-            />
-          )}
-          <span className={s.charSpan}>{character.name}</span>
-          <button onClick={handleClickNext} className={s.charButtons}>
-            {">"}
-          </button>
+        <div className={clicked.charactersModal && s.overlayChar}>
+          <div
+            className={`${s.charDiv} ${
+              clicked.charactersModal && s.charDivDisplay
+            }`}
+          >
+            {Object.keys(character).length && (
+              <img
+                className={s.charImage}
+                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                alt={character.name}
+              />
+            )}
+            <div>
+              <button
+                onClick={handleClickPrevious}
+                className={`${s.charButtons} ${s.buttonLeft}`}
+              >
+                {"<"}
+              </button>
+              <button
+                onClick={handleClickNext}
+                className={`${s.charButtons} ${s.buttonRight}`}
+              >
+                {">"}
+              </button>
+            </div>
+            <span className={s.charSpan}>{character.name}</span>
+          </div>
         </div>
-        <div
-          className={`${s.comicDiv} ${
-            clicked.comicsModal && s.comicDivDisplay
-          }`}
-        >
-          <button onClick={handleClickPrevious} className={s.charButtons}>
-            {"<"}
-          </button>
-          {Object.keys(comic).length && (
-            <img
-              className={s.comicImage}
-              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-              alt={comic.title}
-            />
-          )}
-          <span className={s.comicSpan}>{comic.title}</span>
-          <button onClick={handleClickNext} className={s.charButtons}>
-            {">"}
-          </button>
+        <div className={clicked.comicsModal && s.overlayComic}>
+          <div
+            className={`${s.comicDiv} ${
+              clicked.comicsModal && s.comicDivDisplay
+            }`}
+          >
+            {Object.keys(comic).length && (
+              <img
+                className={s.comicImage}
+                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                alt={comic.title}
+              />
+            )}
+            <div>
+              <button
+                onClick={handleClickPrevious}
+                className={`${s.charButtons} ${s.buttonLeft}`}
+              >
+                {"<"}
+              </button>
+              <button
+                onClick={handleClickNext}
+                className={`${s.charButtons} ${s.buttonRight}`}
+              >
+                {">"}
+              </button>
+            </div>
+            <span className={s.comicSpan}>{comic.title}</span>
+          </div>
         </div>
       </div>
     </article>

@@ -90,9 +90,9 @@ export const getComic = (id) => {
   };
 };
 
-export const getEvents = () => {
+export const getEvents = (eventName) => {
   const hash = hashGenerator();
-  const URL = `https://gateway.marvel.com:443/v1/public/events?characters=1009610%2C1009351%2C1009718&limit=10&ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
+  const URL = `https://gateway.marvel.com:443/v1/public/events?nameStartsWith=${eventName}&ts=${TIME_STAMP}&limit=10&apikey=${PUBLIC_KEY}&hash=${hash}`;
   return (dispatch) => {
     fetch(URL)
       .then((response) => response.json())

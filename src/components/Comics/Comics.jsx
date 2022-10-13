@@ -17,6 +17,7 @@ const Comics = () => {
     e.preventDefault();
     dispatch(getComics(input));
     setInput("");
+    document.querySelector("input").blur();
   };
 
   const handleInput = (e) => {
@@ -33,7 +34,7 @@ const Comics = () => {
           value={input}
           onChange={(e) => handleInput(e)}
         />
-        <input type="submit" className={s.inputIcon} value="🔍" />
+        {/* <input type="submit" className={s.inputIcon} value="🔍" /> */}
       </form>
       <div className={s.cardsContainer}>
         {comics &&
