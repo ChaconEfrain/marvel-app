@@ -44,6 +44,7 @@ const Characters = () => {
           characters.map((char) => (
             <Character
               key={char.id}
+              id={char.id}
               poster={`${char.thumbnail.path}.${char.thumbnail.extension}`}
               name={char.name}
             />

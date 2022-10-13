@@ -5,6 +5,7 @@ import {
   GET_COMICS,
   GET_COMIC,
   GET_EVENTS,
+  ADD_CHARACTER_TO_FAVOURITES,
   // GET_SERIES,
   GET_STORIES,
   // GET_CREATORS,
@@ -55,9 +56,10 @@ export const getCharacterComics = (id) => {
   return (dispatch) => {
     fetch(URL)
       .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: GET_CHARACTER_COMICS, payload: data.data.results })
-      )
+      .then((data) => {
+        console.log(data.data.results);
+        dispatch({ type: GET_CHARACTER_COMICS, payload: data.data.results });
+      })
       .catch((err) => console.error(err));
   };
 };
@@ -101,6 +103,13 @@ export const getEvents = (eventName) => {
         console.log(data.data.results);
       })
       .catch((err) => console.error(err));
+  };
+};
+
+export const addCharacterToFavourites = (id) => {
+  return {
+    type: ADD_CHARACTER_TO_FAVOURITES,
+    payload: id,
   };
 };
 
