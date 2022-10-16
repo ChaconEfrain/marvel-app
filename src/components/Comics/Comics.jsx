@@ -41,6 +41,8 @@ const Comics = () => {
           comics.map((comic) => (
             <Comic
               key={comic.id}
+              id={comic.id}
+              prices={comic.prices}
               poster={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
               title={comic.title}
             />

@@ -7,9 +7,10 @@
   border-radius: 20px;
   box-shadow: 5px 10px 8px 3px black;
   margin-bottom: 20px;
+  position: relative;
 }
 
-.charName {
+.comicTitle {
   text-align: center;
   color: black;
   font-size: 15px;
@@ -20,4 +21,43 @@
   width: 200px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+}
+
+.comicOptions {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.712);
+  width: 100%;
+  height: 50%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  bottom: 0;
+  padding-top: 20px;
+  transition: opacity 0.35s ease-in;
+}
+
+.card:hover .comicOptions {
+  opacity: 1;
+}
+
+.card:hover .comicTitle {
+  opacity: 0;
+  transition: opacity 0.35s ease-in;
+}
+
+.comicOptions span {
+  margin-left: 15px;
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.favButton:hover {
+  cursor: pointer;
 }

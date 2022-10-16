@@ -46,7 +46,7 @@
   display: none;
   justify-content: space-between;
   height: 200px;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -56,7 +56,7 @@
   display: none;
   justify-content: space-between;
   height: 250px;
-  top: 25%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -65,10 +65,11 @@
   background-color: rgba(0, 0, 0, 0.382);
   backdrop-filter: blur(4px);
   border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   position: absolute;
   top: -20px;
   left: -10px;
-  bottom: 40px;
+  bottom: -20px;
   right: 0;
 }
 
@@ -79,39 +80,13 @@
   position: absolute;
   top: -20px;
   left: -10px;
-  bottom: 40px;
+  bottom: -20px;
   right: 0;
-}
-
-.charButtons {
-  background-color: transparent;
-  border: none;
-  font-weight: bold;
-}
-
-.charButtons:hover {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.buttonRight {
-  margin-left: 15px;
-}
-
-.buttonLeft {
-  margin-right: 15px;
 }
 
 span,
 p {
   color: black;
-}
-
-.charDivDisplay {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .comicDivDisplay {
@@ -120,26 +95,10 @@ p {
   align-items: center;
 }
 
-.charImage {
-  height: 150px;
-  border-radius: 20px;
-  box-shadow: 2px 5px 5px black;
-}
-
-.comicImage {
-  height: 200px;
-  border-radius: 20px;
-  box-shadow: 2px 5px 5px black;
-}
-
-.charSpan {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-}
-
-.comicSpan {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
+.charDivDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cardOption:hover {

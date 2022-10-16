@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 // import md5 from "js-md5";
 import Nav from "./components/Nav/Nav.jsx";
 import Characters from "./components/Characters/Characters.jsx";
+import CharacterComics from "./components/CharacterComics/CharacterComics.jsx";
 import Comics from "./components/Comics/Comics";
 // import Creators from "./components/Creators/Creators.jsx";
 import Events from "./components/Events/Events.jsx";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         {/* <Route path="/series" element={<Series />} /> */}
         <Route path="/stories" element={<Stories />} />
+        <Route path="/character/:name/comics" element={<CharacterComics />} />
       </Routes>
     </div>
   );

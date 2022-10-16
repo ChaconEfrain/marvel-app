@@ -1,0 +1,40 @@
+.charButtons {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+}
+.charButtons:hover {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.buttonRight {
+  margin-left: 15px;
+}
+
+.buttonLeft {
+  margin-right: 15px;
+}
+
+.charImage {
+  height: 150px;
+  border-radius: 20px;
+  box-shadow: 2px 5px 5px black;
+}
+.charSpan {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+.closeButtonChar {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  color: red;
+  top: -30px;
+  font-size: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+.closeButtonChar:hover {
+  cursor: pointer;
+}

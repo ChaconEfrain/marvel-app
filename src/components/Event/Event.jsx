@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacter, getComic } from "../../redux/action_creators";
+import CharactersInvolved from "../CharactersInvolved/CharactersInvolved";
+import ComicsInvolved from "../ComicsInvolved/ComicsInvolved";
 import s from "./Event.module.css";
 
 const Event = ({
@@ -108,6 +110,11 @@ const Event = ({
     }
   };
 
+  //Function to handle click on close button
+  const handleClose = () => {
+    setClicked({ charactersModal: false, comicsModal: false });
+  };
+
   //Event listener to close the modals with the esc key.
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && clicked.charactersModal)
@@ -140,27 +147,14 @@ const Event = ({
             }`}
           >
             {Object.keys(character).length && (
-              <img
-                className={s.charImage}
-                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                alt={character.name}
+              <CharactersInvolved
+                handleClose={handleClose}
+                handleClickNext={handleClickNext}
+                handleClickPrevious={handleClickPrevious}
+                thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                name={character.name}
               />
             )}
-            <div>
-              <button
-                onClick={handleClickPrevious}
-                className={`${s.charButtons} ${s.buttonLeft}`}
-              >
-                {"<"}
-              </button>
-              <button
-                onClick={handleClickNext}
-                className={`${s.charButtons} ${s.buttonRight}`}
-              >
-                {">"}
-              </button>
-            </div>
-            <span className={s.charSpan}>{character.name}</span>
           </div>
         </div>
         <div className={clicked.comicsModal && s.overlayComic}>
@@ -170,27 +164,14 @@ const Event = ({
             }`}
           >
             {Object.keys(comic).length && (
-              <img
-                className={s.comicImage}
-                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                alt={comic.title}
+              <ComicsInvolved
+                handleClose={handleClose}
+                handleClickNext={handleClickNext}
+                handleClickPrevious={handleClickPrevious}
+                thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                title={comic.title}
               />
             )}
-            <div>
-              <button
-                onClick={handleClickPrevious}
-                className={`${s.charButtons} ${s.buttonLeft}`}
-              >
-                {"<"}
-              </button>
-              <button
-                onClick={handleClickNext}
-                className={`${s.charButtons} ${s.buttonRight}`}
-              >
-                {">"}
-              </button>
-            </div>
-            <span className={s.comicSpan}>{comic.title}</span>
           </div>
         </div>
       </div>

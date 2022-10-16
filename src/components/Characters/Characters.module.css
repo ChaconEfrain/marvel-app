@@ -24,7 +24,9 @@
   color: rgb(115, 115, 115);
 }
 
-/* .inputIcon {
-  background-color: transparent;
-  border: none;
-} */
+.loading_Img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% -50%);
+}

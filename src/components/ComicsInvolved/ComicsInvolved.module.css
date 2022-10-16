@@ -1,0 +1,43 @@
+.comicImage {
+  height: 200px;
+  border-radius: 20px;
+  box-shadow: 2px 5px 5px black;
+}
+
+.comicSpan {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+.closeButtonComic {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  color: red;
+  top: -30px;
+  font-size: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+.closeButtonComic:hover {
+  cursor: pointer;
+}
+
+.buttonRight {
+  margin-left: 15px;
+}
+
+.buttonLeft {
+  margin-right: 15px;
+}
+
+.charButtons {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+}
+.charButtons:hover {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

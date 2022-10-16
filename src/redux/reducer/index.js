@@ -1,7 +1,10 @@
 import {
   GET_CHARACTERS,
+  RESET_CHARACTERS,
   GET_CHARACTER,
   GET_CHARACTER_COMICS,
+  GET_CHARACTER_EVENTS,
+  RESET_CHARACTER_COMICS,
   GET_COMICS,
   GET_COMIC,
   GET_EVENTS,
@@ -15,6 +18,7 @@ const initialState = {
   characters: [],
   character: {},
   characterComics: [],
+  characterEvents: [],
   comics: [],
   comic: {},
   events: [],
@@ -43,9 +47,31 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case GET_CHARACTER_COMICS:
+      if (!action.payload.length)
+        return {
+          ...state,
+          characterComics: "N/A",
+        };
+      const filteredComics = action.payload.filter(
+        (comic) =>
+          comic.thumbnail.path.split("/").pop() !== "image_not_available" &&
+          comic.thumbnail.extension !== "gif"
+      );
       return {
         ...state,
-        characterComics: action.payload,
+        characterComics: filteredComics,
+      };
+
+    case RESET_CHARACTER_COMICS:
+      return {
+        ...state,
+        characterComics: [],
+      };
+
+    case RESET_CHARACTERS:
+      return {
+        ...state,
+        characters: [],
       };
 
     case GET_COMICS:

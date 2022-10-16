@@ -1,7 +1,10 @@
 import {
   GET_CHARACTERS,
+  RESET_CHARACTERS,
   GET_CHARACTER,
   GET_CHARACTER_COMICS,
+  GET_CHARACTER_EVENTS,
+  RESET_CHARACTER_COMICS,
   GET_COMICS,
   GET_COMIC,
   GET_EVENTS,
@@ -36,6 +39,12 @@ export const getCharacters = (character) => {
   };
 };
 
+export const resetCharacters = () => {
+  return {
+    type: RESET_CHARACTERS,
+  };
+};
+
 export const getCharacter = (name) => {
   const hash = hashGenerator();
   const URL = `https://gateway.marvel.com:443/v1/public/characters?name=${name}&ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
@@ -61,6 +70,12 @@ export const getCharacterComics = (id) => {
         dispatch({ type: GET_CHARACTER_COMICS, payload: data.data.results });
       })
       .catch((err) => console.error(err));
+  };
+};
+
+export const resetCharacterComics = () => {
+  return {
+    type: RESET_CHARACTER_COMICS,
   };
 };
 

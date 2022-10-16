@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from "../../redux/action_creators";
+import { getCharacters, resetCharacters } from "../../redux/action_creators";
 import Character from "../Character/Character";
+import loadingImg from "../../images/loading-img.gif";
 import s from "./Characters.module.css";
 
 const Characters = () => {
-  // const abecedary = "abcdefghijklmnopqrstuvwxyz";
-  // const randomIndex = Math.floor(Math.random() * abecedary.length);
-  // const randomLetter = abecedary[randomIndex];
+  const abecedary = "abcdefghijklmnopqrstuvwxyz";
+  const randomIndex = Math.floor(Math.random() * abecedary.length);
+  const randomLetter = abecedary[randomIndex];
   const dispatch = useDispatch();
   const characters = useSelector((state) => state.characters);
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    dispatch(getCharacters("spider"));
+    dispatch(resetCharacters());
+    dispatch(getCharacters(randomLetter));
   }, []);
+
+  if (!characters.length)
+    return <img className={s.loading_Img} src={loadingImg} alt="Loading" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
