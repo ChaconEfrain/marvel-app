@@ -5,10 +5,12 @@ import {
   GET_CHARACTER_COMICS,
   GET_CHARACTER_EVENTS,
   RESET_CHARACTER_COMICS,
+  RESET_CHARACTER_EVENTS,
   GET_COMICS,
   GET_COMIC,
   GET_EVENTS,
   ADD_CHARACTER_TO_FAVOURITES,
+  ADD_COMIC_TO_FAVOURITES,
   // GET_SERIES,
   GET_STORIES,
   // GET_CREATORS,
@@ -40,6 +42,7 @@ export const getCharacters = (character) => {
 };
 
 export const resetCharacters = () => {
+  console.log("reset");
   return {
     type: RESET_CHARACTERS,
   };
@@ -73,9 +76,29 @@ export const getCharacterComics = (id) => {
   };
 };
 
+export const getCharacterEvents = (id) => {
+  const hash = hashGenerator();
+  const URL = `https://gateway.marvel.com:443/v1/public/characters/${id}/events?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${hash}`;
+  return (dispatch) => {
+    fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.data.results);
+        dispatch({ type: GET_CHARACTER_EVENTS, payload: data.data.results });
+      })
+      .catch((err) => console.error(err));
+  };
+};
+
 export const resetCharacterComics = () => {
   return {
     type: RESET_CHARACTER_COMICS,
+  };
+};
+
+export const resetCharacterEvents = () => {
+  return {
+    type: RESET_CHARACTER_EVENTS,
   };
 };
 
@@ -124,6 +147,13 @@ export const getEvents = (eventName) => {
 export const addCharacterToFavourites = (id) => {
   return {
     type: ADD_CHARACTER_TO_FAVOURITES,
+    payload: id,
+  };
+};
+
+export const addComicToFavourites = (id) => {
+  return {
+    type: ADD_COMIC_TO_FAVOURITES,
     payload: id,
   };
 };

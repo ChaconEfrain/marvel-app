@@ -1,11 +1,11 @@
 .cardsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-  margin-left: 250px;
-  margin-right: 100px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 900px;
+  margin-top: 50px;
+  gap: 50px;
+  padding-bottom: 20px;
 }
 
 .loading_Img {

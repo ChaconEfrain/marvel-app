@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters, resetCharacters } from "../../redux/action_creators";
 import Character from "../Character/Character";
-import loadingImg from "../../images/loading-img.gif";
+// import loadingImg from "../../images/loading-img.gif";
 import s from "./Characters.module.css";
 
 const Characters = () => {
@@ -14,12 +14,14 @@ const Characters = () => {
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    dispatch(resetCharacters());
-    dispatch(getCharacters(randomLetter));
-  }, []);
+    if (!characters.length) {
+      dispatch(getCharacters(randomLetter));
+      // dispatch(resetCharacters());
+    }
+  }, [characters]);
 
-  if (!characters.length)
-    return <img className={s.loading_Img} src={loadingImg} alt="Loading" />;
+  // if (!characters.length)
+  //   return <img className={s.loading_Img} src={loadingImg} alt="Loading" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +35,7 @@ const Characters = () => {
   };
 
   return (
-    <div>
+    <div className={s.componentContainer}>
       <form className={s.formContainer} onSubmit={(e) => handleSubmit(e)}>
         <input
           className={s.charInput}

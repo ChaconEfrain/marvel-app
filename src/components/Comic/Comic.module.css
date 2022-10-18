@@ -61,3 +61,20 @@
 .favButton:hover {
   cursor: pointer;
 }
+
+.favButtonClicked {
+  display: none;
+}
+
+.favIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: 0.2s linear;
+}
+
+.favIconClicked {
+  transform: translateY(-25px);
+  opacity: 1;
+}

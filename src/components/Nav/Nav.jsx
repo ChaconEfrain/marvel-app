@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import cap from "../../images/cap.png";
 import hulk from "../../images/hulk.png";
@@ -19,6 +18,7 @@ const Nav = () => {
 
   return (
     <nav className={s.navBar}>
+      <div className={s.overlay}></div>
       <div className={s.imageContainer}>
         <img className={s.navImage} src={cap} alt="Captain America" />
         <img className={s.navImage} src={hulk} alt="Hulk" />

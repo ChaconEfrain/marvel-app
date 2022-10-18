@@ -1,17 +1,26 @@
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: 250px;
+  margin-right: 100px;
+  height: 100%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(240, 240, 240);
-  border-radius: 20px;
   width: 200px;
+  border-radius: 20px;
   box-shadow: 5px 10px 8px 3px black;
   margin-bottom: 20px;
   position: relative;
 }
 
-.charName {
+.comicTitle {
   text-align: center;
   color: black;
   font-size: 15px;
@@ -24,7 +33,7 @@
   border-top-left-radius: 20px;
 }
 
-.charOptions {
+.comicOptions {
   position: absolute;
   background-color: rgba(255, 0, 0, 0.712);
   width: 100%;
@@ -41,41 +50,20 @@
   transition: opacity 0.35s ease-in;
 }
 
-.card:hover .charOptions {
+.card:hover .comicOptions {
   opacity: 1;
 }
 
-.card:hover .charName {
+.card:hover .comicTitle {
   opacity: 0;
   transition: opacity 0.35s ease-in;
 }
 
-.charOptions span {
+.comicOptions span {
   margin-left: 15px;
   color: white;
 }
 
 .link {
   text-decoration: none;
-}
-
-.favButton:hover {
-  cursor: pointer;
-}
-
-.favButtonClicked {
-  display: none;
-}
-
-.favIcon {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  opacity: 0;
-  transition: 0.2s linear;
-}
-
-.favIconClicked {
-  transform: translateY(-25px);
-  opacity: 1;
 }

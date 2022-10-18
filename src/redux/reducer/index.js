@@ -5,10 +5,12 @@ import {
   GET_CHARACTER_COMICS,
   GET_CHARACTER_EVENTS,
   RESET_CHARACTER_COMICS,
+  RESET_CHARACTER_EVENTS,
   GET_COMICS,
   GET_COMIC,
   GET_EVENTS,
   ADD_CHARACTER_TO_FAVOURITES,
+  ADD_COMIC_TO_FAVOURITES,
   // GET_SERIES,
   GET_STORIES,
   // GET_CREATORS,
@@ -19,6 +21,8 @@ const initialState = {
   character: {},
   characterComics: [],
   characterEvents: [],
+  favouriteCharacters: [],
+  favouriteComics: [],
   comics: [],
   comic: {},
   events: [],
@@ -62,16 +66,61 @@ export default function rootReducer(state = initialState, action) {
         characterComics: filteredComics,
       };
 
+    case GET_CHARACTER_EVENTS:
+      if (!action.payload.length)
+        return {
+          ...state,
+          characterEvents: "N/A",
+        };
+      return {
+        ...state,
+        characterEvents: action.payload,
+      };
+
     case RESET_CHARACTER_COMICS:
       return {
         ...state,
         characterComics: [],
       };
 
+    case RESET_CHARACTER_EVENTS:
+      return {
+        ...state,
+        characterEvents: [],
+      };
+
     case RESET_CHARACTERS:
       return {
         ...state,
         characters: [],
+      };
+
+    case ADD_CHARACTER_TO_FAVOURITES:
+      const existingCharacter = state.favouriteCharacters.find(
+        (char) => char.id === action.payload
+      );
+      if (existingCharacter) return;
+
+      const character = state.characters.find(
+        (char) => char.id === action.payload
+      );
+
+      return {
+        ...state,
+        favouriteCharacters: [...state.favouriteCharacters, character],
+      };
+
+    case ADD_COMIC_TO_FAVOURITES:
+      const existingComic = state.favouriteComics.find(
+        (comic) => comic.id === action.payload
+      );
+      if (existingComic) return;
+
+      const comic = state.comics.find((comic) => comic.id === action.payload);
+
+      return {
+        ...state,
+        favouriteComics: [...state.favouriteComics, comic],
       };
 
     case GET_COMICS:
