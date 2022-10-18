@@ -9,9 +9,7 @@ const Comics = () => {
   const comics = useSelector((state) => state.comics);
   const [input, setInput] = useState("");
 
-  useEffect(() => {
-    dispatch(getComics("spider"));
-  }, []);
+  if (!comics.length) dispatch(getComics("spider"));
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -22,9 +22,9 @@ const Comic = ({ poster, title, id, prices }) => {
       <img className={s.poster} src={poster} alt={title} />
       <span className={s.comicTitle}>{title}</span>
       <div className={s.comicOptions}>
-        <NavLink to={`/comic/${id}/characters`} className={s.link}>
+        {/* <NavLink to={`/comic/${id}/characters`} className={s.link}>
           <span>Comic creators ↗</span>
-        </NavLink>
+        </NavLink> */}
         <span onClick={handleFavourites} className={s.favButton}>
           Add to favourites
         </span>

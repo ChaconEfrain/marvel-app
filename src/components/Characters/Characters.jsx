@@ -13,12 +13,9 @@ const Characters = () => {
   const characters = useSelector((state) => state.characters);
   const [input, setInput] = useState("");
 
-  useEffect(() => {
-    if (!characters.length) {
-      dispatch(getCharacters(randomLetter));
-      // dispatch(resetCharacters());
-    }
-  }, [characters]);
+  if (!characters.length) {
+    dispatch(getCharacters(randomLetter));
+  }
 
   // if (!characters.length)
   //   return <img className={s.loading_Img} src={loadingImg} alt="Loading" />;

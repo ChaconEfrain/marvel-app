@@ -9,9 +9,7 @@ const Events = () => {
   const events = useSelector((state) => state.events);
   const [input, setInput] = useState("");
 
-  useEffect(() => {
-    dispatch(getEvents("a"));
-  }, []);
+  if (!events.length) dispatch(getEvents("a"));
 
   const handleSubmit = (e) => {
     e.preventDefault();

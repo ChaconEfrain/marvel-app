@@ -4,7 +4,7 @@
   align-items: center;
   list-style: none;
   background-image: url("../../images/nav_background.jpg");
-  background-size: 1000px;
+  background-size: 1400px;
   background-position: center;
   position: relative;
   margin-bottom: 20px;
@@ -29,6 +29,7 @@
 
 .navImage {
   height: 200px;
+  filter: drop-shadow(5px 5px 5px rgb(60, 60, 60));
   z-index: 1;
 }
 
@@ -46,10 +47,8 @@
 
 .navLink:hover {
   color: rgb(106, 160, 255);
-  font-size: 22px;
 }
 
 .active {
   color: rgb(106, 160, 255);
-  font-size: 22px;
 }

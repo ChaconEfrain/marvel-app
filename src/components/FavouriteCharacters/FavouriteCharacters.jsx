@@ -12,6 +12,7 @@ import s from "./FavouriteCharacters.module.css";
 const FavouriteCharacters = () => {
   const dispatch = useDispatch();
   const characters = useSelector((state) => state.favouriteCharacters);
+  console.log(characters);
 
   const handleCharacterComicsClick = (id) => {
     dispatch(resetCharacterComics());
@@ -27,7 +28,7 @@ const FavouriteCharacters = () => {
     <div className={s.cardsContainer}>
       {characters &&
         characters.map((char) => (
-          <article className={s.card}>
+          <article key={char.id} className={s.card}>
             <img
               className={s.poster}
               src={`${char.thumbnail.path}.${char.thumbnail.extension}`}

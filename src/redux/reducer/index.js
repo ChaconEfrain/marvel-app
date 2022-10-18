@@ -96,14 +96,14 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case ADD_CHARACTER_TO_FAVOURITES:
-      const existingCharacter = state.favouriteCharacters.find(
-        (char) => char.id === action.payload
+      const existingCharacter = state.favouriteCharacters.some(
+        (char) => char.id === action.payload,
+        state
       );
-      if (existingCharacter) return;
-
       const character = state.characters.find(
         (char) => char.id === action.payload
       );
+      if (existingCharacter || character === undefined) return;
 
       return {
         ...state,

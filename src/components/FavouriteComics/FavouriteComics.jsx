@@ -17,9 +17,9 @@ const FavouriteComics = () => {
             />
             <span className={s.comicTitle}>{comic.title}</span>
             <div className={s.comicOptions}>
-              <NavLink to={`/comic/${comic.id}/characters`} className={s.link}>
+              {/* <NavLink to={`/comic/${comic.id}/characters`} className={s.link}>
                 <span>Comic creators ↗</span>
-              </NavLink>
+              </NavLink> */}
               <span>Comic price: {Number(comic.prices[0].price) || "N/A"}</span>
             </div>
           </article>
