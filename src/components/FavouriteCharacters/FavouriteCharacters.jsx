@@ -5,6 +5,7 @@ import {
   getCharacterComics,
   resetCharacterComics,
   resetCharacterEvents,
+  removeCharacterFromFavourites,
 } from "../../redux/action_creators";
 // import Character from "../Character/Character";
 import s from "./FavouriteCharacters.module.css";
@@ -24,11 +25,21 @@ const FavouriteCharacters = () => {
     dispatch(getCharacterEvents(id));
   };
 
+  const removeFromFavourites = (id) => {
+    dispatch(removeCharacterFromFavourites(id));
+  };
+
   return (
     <div className={s.cardsContainer}>
       {characters &&
         characters.map((char) => (
           <article key={char.id} className={s.card}>
+            <button
+              onClick={() => removeFromFavourites(char.id)}
+              className={s.removeButton}
+            >
+              x
+            </button>
             <img
               className={s.poster}
               src={`${char.thumbnail.path}.${char.thumbnail.extension}`}

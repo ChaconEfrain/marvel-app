@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {
   getCharacterComics,
@@ -12,6 +12,7 @@ import s from "./Character.module.css";
 
 const Character = ({ name, poster, id }) => {
   const dispatch = useDispatch();
+  const favs = useSelector((state) => state.favouriteCharacters);
   const [addedToFavIcon, setAddedToFavIcon] = useState(false);
 
   const handleCharacterComicsClick = () => {
@@ -25,6 +26,8 @@ const Character = ({ name, poster, id }) => {
   };
 
   const handleFavourites = () => {
+    const existingChar = favs.some((char) => char.id === id);
+    if (existingChar) return;
     dispatch(addCharacterToFavourites(id));
     console.log(name);
     setAddedToFavIcon(true);

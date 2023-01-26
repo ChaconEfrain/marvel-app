@@ -10,7 +10,9 @@ import {
   GET_COMIC,
   GET_EVENTS,
   ADD_CHARACTER_TO_FAVOURITES,
+  REMOVE_CHARACTER_FROM_FAVOURITES,
   ADD_COMIC_TO_FAVOURITES,
+  REMOVE_COMIC_FROM_FAVOURITES,
   // GET_SERIES,
   GET_STORIES,
   // GET_CREATORS,
@@ -151,9 +153,23 @@ export const addCharacterToFavourites = (id) => {
   };
 };
 
+export const removeCharacterFromFavourites = (id) => {
+  return {
+    type: REMOVE_CHARACTER_FROM_FAVOURITES,
+    payload: id,
+  };
+};
+
 export const addComicToFavourites = (id) => {
   return {
     type: ADD_COMIC_TO_FAVOURITES,
+    payload: id,
+  };
+};
+
+export const removeComicFromFavourites = (id) => {
+  return {
+    type: REMOVE_COMIC_FROM_FAVOURITES,
     payload: id,
   };
 };

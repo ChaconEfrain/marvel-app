@@ -67,3 +67,23 @@
 .link {
   text-decoration: none;
 }
+
+.removeButton {
+  position: absolute;
+  right: -20px;
+  top: -15px;
+  font-size: 20px;
+  color: red;
+  background-color: transparent;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.card:hover .removeButton {
+  opacity: 1;
+}
+
+.removeButton:hover {
+  cursor: pointer;
+}
